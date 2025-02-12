@@ -161,6 +161,7 @@ namespace Azure.Storage.Blobs
                 {
                     initialResponse = await _client.DownloadStreamingInternal(
                         initialRange,
+                        true,
                         conditions,
                         ValidationOptions,
                         _progress,
@@ -172,6 +173,7 @@ namespace Azure.Storage.Blobs
                 {
                     initialResponse = await _client.DownloadStreamingInternal(
                         range: default,
+                        false,
                         conditions,
                         ValidationOptions,
                         _progress,
@@ -260,6 +262,7 @@ namespace Azure.Storage.Blobs
                     ValueTask<Response<BlobDownloadStreamingResult>> responseValueTask = _client
                         .DownloadStreamingInternal(
                             httpRange,
+                            true,
                             conditionsWithEtag,
                             ValidationOptions,
                             _progress,

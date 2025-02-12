@@ -181,6 +181,7 @@ namespace Azure.Storage.Blobs.Test
             blockClient.SetupGet(c => c.UsingClientSideEncryption).Returns(false);
             blockClient.Setup(c => c.DownloadStreamingInternal(
                 It.IsAny<HttpRange>(),
+                It.IsAny<bool>(),
                 It.IsAny<BlobRequestConditions>(),
                 It.IsAny<DownloadTransferValidationOptions>(),
                 It.IsAny<IProgress<long>>(),
@@ -214,6 +215,7 @@ namespace Azure.Storage.Blobs.Test
             blockClient.SetupGet(c => c.UsingClientSideEncryption).Returns(false);
             blockClient.Setup(c => c.DownloadStreamingInternal(
                 It.IsAny<HttpRange>(),
+                It.IsAny<bool>(),
                 It.IsAny<BlobRequestConditions>(),
                 It.Is<DownloadTransferValidationOptions>(options =>
                     options != null && options != s_validationOptions && !options.AutoValidateChecksum),
